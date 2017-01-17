@@ -29,7 +29,7 @@
 [push]
   default = upstream
 [core]
-  editor = vim
+	editor = sublime -n -w
   excludesfile = ~/.gitignore
 [color]
   ui = true
