@@ -1,31 +1,4 @@
 set nocompatible              " Vundle setup
-filetype off                  " Vundle setup
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'chriskempson/base16-vim'
-Plugin 'lilydjwg/colorizer'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'fatih/vim-go'
-Plugin 'pangloss/vim-javascript'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'jgdavey/vim-turbux'
-Plugin 'benmills/vimux'
-
-call vundle#end()            " Vundle setup
 filetype plugin indent on    " Vundle setup
 
 set encoding=utf8
@@ -120,53 +93,7 @@ endfunction
 
 map <leader>, :call RenameFile()<cr>
 
-" Run file if we know how
-function! RunFile(filename)
-  :w
-  :silent !clear
-  if match(a:filename, '\.rb$') != -1
-    exec ":!ruby " . a:filename
-  elseif match(a:filename, '\.py$') != -1
-    exec ":!python " . a:filename
-  elseif match(a:filename, '\.go$') != -1
-    exec ":!go run " . a:filename
-  elseif match(a:filename, '\.sh$') != -1
-    exec ":!bash " . a:filename
-  elseif match(a:filename, '\.tex$') != -1
-    exec ":!make "
-  elseif match(a:filename, 'makefile$') != -1
-    exec ":!make "
-  else
-    exec ":!echo \"Don't know how to execute: \"" . a:filename
-  end
-endfunction
-
 map <leader>e :call RunFile(expand("%"))<cr>
-
-" Faster search
-" https://robots.thoughtbot.com/faster-grepping-in-vim
-" https://github.com/ggreer/the_silver_searcher
-
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  " bind Leader g to grep word under cursor
-  nnoremap <leader>g :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap <leader>G :Ag<SPACE>
-  endif
-else
-  echo "Silver surfer not found"
-endif
 
 " Toggle - comment, uses Vim-commentary
 nmap <C-\> gcc<ESC>
