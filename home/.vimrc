@@ -44,11 +44,7 @@ endif
 
 " Color scheme settings.
 syntax on
-colorscheme base16-tomorrow
 set background=dark
-
-" Spell settings
-set spellfile=~/.vim/spell/mySpellFile.en.utf-8.add
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -56,28 +52,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-" Turbux config
-if filereadable("Gemfile")
-  let g:turbux_command_prefix = 'bundle exec'
-endif
-
-" hack to fix broken 'run focused test' since https://github.com/jgdavey/vim-turbux/pull/36
-let g:turbux_test_type = ''
-
-" Airline config
-let g:airline_theme='tomorrow'
-let g:airline_powerline_fonts = 1
-
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " Rename current file
 function! RenameFile()
