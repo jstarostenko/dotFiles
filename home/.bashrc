@@ -160,3 +160,37 @@ if [[ $OSTYPE = darwin* ]]; then
 fi
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+export WORKON_HOME=~/.virtualenvs
+source $(brew --prefix)/bin/virtualenvwrapper.sh
+
+git_ps1() {
+  g=$(cat .git/HEAD 2>/dev/null) && {
+    printf "(${g##*/})"
+  }
+}
+ruby_ps1() {
+  echo $(ruby -v | awk '{print $2}' | cut -d 'p' -f 1)
+}
+python_ps1() {
+  echo $(python --version 2>&1 | awk '{print $2}')
+}
+source /Users/juliastarostenko/.colors
+export PS1="\[$bldcyn\]\w\$(git_ps1) \[$txtred\](\$(ruby_ps1)) \[$txtrst\]➝  "
+
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi 
+if [[ -f /opt/dev/dev.sh ]]; then source /opt/dev/dev.sh; fi
+
+# To start sublime from terminal: to use "subl -w finename"
+alias _subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+# for redshift
+export PYTHONPATH=$PYTHONPATH:/Users/juliastarostenko/code/all_repos/data-scratch/python-tools/redshift
+
+# load dev, but only if present and the shell is interactive
+if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
+  source /opt/dev/dev.sh
+fi
+alias jython="/Users/juliastarostenko/jython2.7.0/bin/jython"
+
+export PATH="$HOME/.yarn/bin:$PATH"
