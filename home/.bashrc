@@ -180,3 +180,7 @@ alias _subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 # for redshift
 export PYTHONPATH=$PYTHONPATH:/Users/juliastarostenko/code/all_repos/data-scratch/python-tools/redshift
+
+
+export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export EDITOR='subl -w'
