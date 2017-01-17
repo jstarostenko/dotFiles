@@ -1,6 +1,6 @@
 [user]
-  name = Hammad Khalid
-  email = hammad.khalid@shopify.com
+  name = Julia Starostenko
+  email = julia.starostenko@shopify.com
 [alias]
   ap="add -p"
   aa="add --all"
@@ -30,14 +30,24 @@
   default = upstream
 [core]
   editor = vim
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [color]
   ui = true
 [github]
-  user = hammadk
+  user = jstarostenko
 [column]
   ui = auto,dense
 [pull]
 	rebase = true
 [init]
 	templatedir = ~/.git_template
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
