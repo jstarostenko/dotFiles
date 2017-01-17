@@ -55,7 +55,7 @@ git_prompt() {
   fi
 }
 
-PS1="$C_BLUE\w $C_GREEN\$(git_prompt) \n$C_DEFAULT\$ "
+PS1="$C_PURPLE\w $C_GREEN\$(git_prompt) \n$C_DEFAULT\$ "
 
 ##################### Aliases and helper functions
 
