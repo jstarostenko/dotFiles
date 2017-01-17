@@ -183,4 +183,9 @@ export PYTHONPATH=$PYTHONPATH:/Users/juliastarostenko/code/all_repos/data-scratc
 
 
 export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+
+# Create a shortcut for sublime
+# ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+
 export EDITOR='subl -w'
+export GIT_EDITOR='subl -w'
