@@ -55,7 +55,7 @@ git_prompt() {
   fi
 }
 
-PS1="$C_RED\h: $C_BLUE\w $C_GREEN\$(git_prompt) \n$C_DEFAULT\$ "
+PS1="$C_BLUE\w $C_GREEN\$(git_prompt) \n$C_DEFAULT\$ "
 
 ##################### Aliases and helper functions
 
@@ -188,9 +188,8 @@ alias _subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 export PYTHONPATH=$PYTHONPATH:/Users/juliastarostenko/code/all_repos/data-scratch/python-tools/redshift
 
 # load dev, but only if present and the shell is interactive
-if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
-  source /opt/dev/dev.sh
-fi
-alias jython="/Users/juliastarostenko/jython2.7.0/bin/jython"
-
-export PATH="$HOME/.yarn/bin:$PATH"
+# if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
+#   source /opt/dev/dev.sh
+# fi
+# 
+# export PATH="$HOME/.yarn/bin:$PATH"
